@@ -1,0 +1,82 @@
+##创建nfs-PV
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv
+  namespace: nfs-test
+  labels:
+    pv: nfs-pv
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /data/k8s
+    server: 202.116.46.215
+##创建 NFS-pvc
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nfs-pvc
+  namespace: nfs-test
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+  selector:
+    matchLabels:
+      pv: nfs-pv
+## 部署应用Nginx
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nginx-nfs-test
+  labels:
+    name: nginx-nfs-test
+  namespace: nfs-test
+spec:
+  replicas: 2
+  selector:
+    name: nginx-nfs-test
+  template:
+    metadata:
+      labels: 
+       name: nginx-nfs-test
+    spec:
+      containers:
+      - name: nginx-nfs-test
+        image: docker.io/nginx
+        volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: nginx-data
+        ports:
+        - containerPort: 80
+      volumes:
+      - name: nginx-data
+        persistentVolumeClaim:
+          claimName: nfs-pvc
+##创建Service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-nfs-test
+  labels: 
+   name: nginx-nfs-test
+  namespace: nfs-test
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    name: http
+    nodePort: 8480
+  selector:
+    name: nginx-nfs-test

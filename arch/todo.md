@@ -1,0 +1,1 @@
+Taint 和 Toleration  https://kubernetes.io/zh/docs/concepts/configuration/taint-and-toleration/

@@ -1,0 +1,7 @@
+##创建namespaces
+apiVersion: v1
+kind: Namespace
+metadata:
+   name: nfs-test
+   labels:
+     name: nfs-nfs-test

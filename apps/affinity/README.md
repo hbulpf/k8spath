@@ -1,0 +1,1 @@
+https://www.cnblogs.com/cocowool/p/kubernetes_affinity.html

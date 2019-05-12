@@ -1,11 +1,3 @@
-Kubernetes 架构
->Kubernetes API Server , Controller Manager , Scheduler , kubelet , kube-proxy
-
-## Kubernetes API Server
-Kubernetes API Server 的核心功能提供了 Kubernetes 各类资源对象(Pod、RC、Service)的增删查改及Watch等 HTTP Rest 接口，成为集群内各个功能模块之间数据交互和通信的中心枢纽，是整个系统的数据总线和数据中心，是集群管理的API入口，资源配额控制的入口，提供完备的集群安全机制。
-## Controller Manager 
-Controller Manager 是集群内部的管理控制中心，负责集群中的Node、Pod副本、服务端点(Endpoint)、命名空间(Namespace)、服务账号(Service Account)、资源配额(ResourceQuota)等的管理，当某个Node意外宕机时，Controller Manager会及时发现此故障并执行自动化修复流程，确保集群始终处于预期的工作状态。
-![](./controlerManager.jpg)
 
 ## Scheduler 
 Kubernetes Scheduler 是负责Pod调度的重要功能模块再整个系统中有“承上启下”的作用。它负责接收 Controller Manager 创建新Pod的请求，为新Pod找到一个目标Node,新Pod创建后，目标Node上的kubelet服务进程负责Pod的剩余生命周期。
@@ -14,7 +6,7 @@ Kubernetes Scheduler 是负责Pod调度的重要功能模块再整个系统中�
 
 简单来讲，Kubernetes Scheduler 的核心工作就是通过调度算法为待调度Pod列表的每个 Pod 从 Node 列表中选择一个最适合的Node。随后，目标节点上的 kubelet 通过 API Server 监听到 Kubernetes Scheduler 产生的 Pod 绑定事件，然后获取对应的Pod清单，下载Image镜像，并启动容器。
 
-![](../scheduler/Scheduler.jpg)
+![](./Scheduler.jpg)
 
 在 kube-scheduler 的启动参数中 ，`--algorithm-provider="DefaultProvider"` 用于设置调度算法，默认为 DefaultProvider 。默认调度过程如下[[1]]():
 1. 预选调度过程，即遍历所有目标 Node ，选出符合要求的候选节点。为此，Kubernetes内置了多种预选策略(xxx Predicates) 供用户选择
@@ -78,11 +70,9 @@ NodeLabel：    #节点是否存在对应的标签 （默认未启用）
 ImageLocality：#根据满足当前Pod对象需求的已有镜像的体积大小之和（默认未启用）
 ```
 
-## kubelet 
-## kube-proxy涉及
-
 # 参考
 1. 龚正,吴治辉等 . Kubernetes权威指南:从Docker到Kubernetes全接触[M] . 北京：电子工业出版社,2016:177-194
 2. k8s调度器、预选策略及调度方式 . https://www.cnblogs.com/zhangb8042/p/10203266.html
 3. k8s scheduler pod调度分析 . https://blog.csdn.net/weixin_39961559/article/details/81704461
 4. Pod Priority and Preemption . https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/
+1. Kubernetes调度详解 . http://dockone.io/article/2885

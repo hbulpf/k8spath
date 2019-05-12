@@ -1,0 +1,7 @@
+
+
+# 参考
+1. Kubernetes源码编译 . https://juejin.im/entry/5b88abf0e51d45388f746bec  
+2. k8s1.13 源码编译 . https://blog.csdn.net/aixiaoyang168/article/details/87917184
+3. kubernetes的编译、打包、发布 . https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2017/05/15/Kubernetes-compile.html
+4. 如何顺利完成Kubernetes源码编译. http://dockone.io/article/8776

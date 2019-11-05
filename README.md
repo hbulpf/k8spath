@@ -3,7 +3,7 @@
 # Dokcer 基础
 
 # Kubernetes 基础
-
+1. [Kubernetes 命令](kube-cmd.md)
 1. [Gitlab CI](https://www.qikqiak.com/k8s-book/docs/65.Gitlab%20CI.html)
 
 # 参考

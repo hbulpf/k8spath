@@ -1,8 +1,14 @@
-**Kubernetes学习之路**
+# Kubernetes学习之路
 
-# Dokcer 基础
+[![知识共享协议（CC协议）](https://img.shields.io/badge/License-Creative%20Commons-DC3D24.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)
+[![GitHub stars](https://img.shields.io/github/stars/hbulpf/k8spath.svg?label=Stars)](https://github.com/hbulpf/k8spath)
+[![GitHub watchers](https://img.shields.io/github/watchers/hbulpf/k8spath.svg?label=Watchers)](https://github.com/hbulpf/k8spath/watchers)
+[![GitHub forks](https://img.shields.io/github/forks/hbulpf/k8spath.svg?label=Forks)](https://github.com/hbulpf/k8spath/fork)
 
-# Kubernetes 基础
+## Dokcer 基础
+
+## Kubernetes 基础
+
 1. [Kubernetes 命令](kube-cmd.md)
 1. [Gitlab CI](https://www.qikqiak.com/k8s-book/docs/65.Gitlab%20CI.html)
 

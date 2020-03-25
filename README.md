@@ -16,8 +16,6 @@
 + **Kubernetes 相关**
     1. [kubernetes-handbook](https://jimmysong.io/kubernetes-handbook)
     1. Kubernetes权威指南第2版: [下载PDF](https://github.com/hbulpf/MLBooks/blob/master/6_%E4%BA%91%E8%AE%A1%E7%AE%97/Kubernetes%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%AC%AC2%E7%89%88.pdf)
-<<<<<<< .mine
-
 
 ----------------------------------------
 
@@ -28,16 +26,3 @@
 **友情贡献**
 
 @[**RunAtWorld**](http://www.github.com/RunAtWorld)  &nbsp; 
-=======
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> .theirs

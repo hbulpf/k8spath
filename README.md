@@ -26,5 +26,4 @@
 
 **友情贡献**
 
-@[**RunAtWorld**](http://www.github.com/RunAtWorld)  &nbsp;  @[**persuez**](https://github.com/persuez)
-
+@[**RunAtWorld**](http://www.github.com/RunAtWorld)  &nbsp; 

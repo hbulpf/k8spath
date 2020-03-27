@@ -11,6 +11,7 @@
 
 1. [Kubernetes 命令](kube-cmd.md)
 1. [Gitlab CI](https://www.qikqiak.com/k8s-book/docs/65.Gitlab%20CI.html)
+1. [kubernetes官方手册](https://kubernetes.io/zh/docs/concepts/)
 
 # 参考
 1. 和我一步步部署 kubernetes 集群 . https://github.com/opsnull/follow-me-install-kubernetes-cluster

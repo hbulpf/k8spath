@@ -324,3 +324,7 @@ Volume形式可以动态更新密码
 ![img](imgs/1747745-20190827160928855-393058847.png)
 
 执行文件并进入到Pod验证
+
+# 参考
+
+1. [K8S知识点总结](https://www.cnblogs.com/Super-It/p/11418959.html)

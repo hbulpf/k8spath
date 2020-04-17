@@ -33,3 +33,7 @@
 **友情贡献**
 
 @[**RunAtWorld**](http://www.github.com/RunAtWorld)  &nbsp; 
+
+#### 关注公众号 『四方云和』 获取更多优质文章 ~
+
+![sfyh_qrcode](images/sfyh_qrcode.jpg)

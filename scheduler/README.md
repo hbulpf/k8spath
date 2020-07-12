@@ -6,3 +6,4 @@
 6. Kubernetes调度算法介绍 . https://my.oschina.net/u/1378920/blog/1550452
 
 Kubernetes之服务质量保证（QoS） http://dockone.io/article/2592
+

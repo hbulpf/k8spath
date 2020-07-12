@@ -13,9 +13,11 @@
 1. [Gitlab CI](https://www.qikqiak.com/k8s-book/docs/65.Gitlab%20CI.html)
 1. [kubernetes官方手册](https://kubernetes.io/zh/docs/concepts/)
 
-# 参考
-1. 和我一步步部署 kubernetes 集群 . https://github.com/opsnull/follow-me-install-kubernetes-cluster
+# 参考资源
 
+1. 和我一步步部署 kubernetes 集群 . https://github.com/opsnull/follow-me-install-kubernetes-cluster
+2. [CKA考试讲解，3天速成K8S](https://bbs.huaweicloud.com/videos/102361)
+   
 # 书单
 + **Docker 相关**
     1. [Docker 从入门到实践](https://github.com/yeasy/docker_practice) : [下载PDF](https://github.com/hbulpf/MLBooks/blob/master/6_%E4%BA%91%E8%AE%A1%E7%AE%97/docker_practice.pdf)

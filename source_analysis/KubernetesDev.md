@@ -1,4 +1,5 @@
 # 搭建Kubernetes开发环境
+
 >在Windows上使用GoLand IDE查看Kubernetes项目源码，在Linux上编译项目。在Linux上安装FTP服务来同步Windows和Linux之间的代码。
 
 ## 在Linux上搭建FTP服务器并尝试编译K8S

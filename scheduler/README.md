@@ -1,3 +1,6 @@
+# K8S 调度器
+
+
 1. Kubernetes调度详解 http://dockone.io/article/2885
 2. Kubernetes Scheduler 源码全解析（附流程图） . http://tang.love/2018/07/24/learning-kubernetes-source-code/
 3. kubernetes 简介：调度器和调度算法 . https://cizixs.com/2017/03/10/kubernetes-intro-scheduler/

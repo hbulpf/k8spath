@@ -1,8 +1,10 @@
-Kubernetes 架构
->Kubernetes API Server , Controller Manager , Scheduler , kubelet , kube-proxy
+# Kubernetes 架构
+
+> Kubernetes API Server , Controller Manager , Scheduler , kubelet , kube-proxy
 
 ## Kubernetes API Server
 Kubernetes API Server 的核心功能提供了 Kubernetes 各类资源对象(Pod、RC、Service)的增删查改及Watch等 HTTP Rest 接口，成为集群内各个功能模块之间数据交互和通信的中心枢纽，是整个系统的数据总线和数据中心，是集群管理的API入口，资源配额控制的入口，提供完备的集群安全机制。
+
 ## Controller Manager 
 Controller Manager 是集群内部的管理控制中心，负责集群中的Node、Pod副本、服务端点(Endpoint)、命名空间(Namespace)、服务账号(Service Account)、资源配额(ResourceQuota)等的管理，当某个Node意外宕机时，Controller Manager会及时发现此故障并执行自动化修复流程，确保集群始终处于预期的工作状态。
 ![](./controlerManager.jpg)
@@ -79,6 +81,7 @@ ImageLocality：#根据满足当前Pod对象需求的已有镜像的体积大小
 ```
 
 ## kubelet 
+
 ## kube-proxy涉及
 
 # 参考

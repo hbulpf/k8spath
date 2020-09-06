@@ -1,4 +1,4 @@
-# 
+# Master节点
 1. k8s master节点作为　Worker Node 使用
 	出于安全考虑，默认配置下 Kubernetes 不会将 Pod 调度到 Master 节点。如果希望将 k8s-master 也当作 Node 使用，执行如下命令：
 	```

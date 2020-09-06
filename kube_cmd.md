@@ -289,6 +289,31 @@ $ kubectl taint nodes foo dedicated=special-user:NoSchedule
 | `--v=7` | 显示HTTP请求的header。                         |
 | `--v=8` | 显示HTTP请求的内容。                             |
 
+
+## 补充
+
+1. 查看pod详细信息
+
+```
+kubectl -n backend get  pod/myapp-7b9f486cf9-9rfpg -o wide
+```
+
+2. 查看pod描述
+
+```
+kubectl -n backend describe myapp-7b9f486cf9-9rfpg
+```
+
+
+3. 进入 pod 内的容器：
+
+```
+kubectl -n backend  exec -it myapp-7b9f486cf9-9rfpg -c filebeat-myapp -- bash
+```
+
+> 双横杠（--）代表 kubectl 命令项的结束，在双横杠后面的内容是指pod内部需要执行的命令。
+
+
 ## 参考
 
 - [Kubectl 概览](https://kubernetes.io/docs/user-guide/kubectl-overview)

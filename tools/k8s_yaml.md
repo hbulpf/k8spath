@@ -1,20 +1,18 @@
-# k8s yaml文件
+# yaml文件
 
-### 简介
+## 简介
 
 YAML（IPA: /ˈjæməl/，尾音类似camel骆驼）是一个可读性高，用来表达资料序列的编程语言。YAML参考了其他多种语言，包括：XML、C语言、Python、Perl以及电子邮件格式RFC2822。Clark Evans在2001年在首次发表了这种语言[1] ，另外Ingy döt Net与Oren Ben-Kiki也是这语言的共同设计者。目前已经有数种编程语言或脚本语言支援（或者说解析）这种语言。
 
 YAML是"YAML Ain't a Markup Language"（YAML不是一种置标语言）的递回缩写。在开发的这种语言时，YAML 的意思其实是："Yet Another Markup Language"（仍是一种置标语言），但为了强调这种语言以数据做为中心，而不是以置标语言为重点，而用返璞词重新命名。
 
-##### 注意
+### 注意
 
 yaml文件的后缀可以使用.yml也可以使用.yaml（官方使用的是这种），当然了你也可以使用任何其他后缀，后缀仅仅是一个标识，对文件的内容和功能无任何影响。
 
 k8s里所有的资源或者配置文件都可以用yaml或Json定义。YAML是一个JSON的超集，任何有效JSON文件也都是一个有效的YAML文件。
 
-### yaml举例
-
-
+## yaml举例
 
 ```bash
 # yaml格式的pod定义文件完整内容：
@@ -96,7 +94,7 @@ spec:         #必选，Pod中容器的详细定义
           path: string
 ```
 
-### yaml基础
+## yaml基础
 
 - 大小写敏感
 - 使用缩进表示层级关系
@@ -256,9 +254,9 @@ spec:
 
 正如你所看到的，我们写的内容开始变的复杂，甚至我们还没有进入任何特别复杂!
 
+## 工具
 
-
-
+1. YAML 格式化工具 Lint . http://www.yamllint.com/
 
 # 参考
 

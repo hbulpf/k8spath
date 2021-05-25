@@ -251,6 +251,7 @@
 	```
 
 # 常见问题
+
 1. `Cannot start container eb9d501f56bc142d9bf75ddfc7ad88383b7388ca6a5959309af2165f1fff6292: iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 8081 -j DNAT --to-destination 172.17.0.164:8080 ! -i docker0: iptables: No chain/target/match by that name.
  (exit status 1)`     
  解决：   
@@ -263,6 +264,7 @@
 	docker -d 
 	systmctl restart docker重启docker服务
 	```
+	
 2. `docker 修改容器启动配置`<br>
 方法1:<br>
 ```

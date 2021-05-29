@@ -54,7 +54,7 @@ docker images -f before=mongo:3.2 #使用过滤器来列出虚悬镜像,看到�
 docker images -f label=com.example.version=0.1  #通过 LABEL 来过滤
 docker pull [选项] [Docker Registry地址]<仓库名>:<标签>  #从 Docker Registry 获取镜像
 ```
-  
+
 ## 操作 镜像 
 
 ### 镜像基本操作
@@ -123,7 +123,7 @@ docker restart {容器ID或容器名}  #重启一个容器
 docker rm  {容器ID或容器名} 
 docker rm trusting_newton  #删除一个处于终止状态的容器
 
-docker rm $(docker ps -a -q)  #清理全部终止状态的容器
+docker rm $(docker ps -qf status=exited)  #清理全部终止状态的容器
 docker container prune -f    #清理全部终止状态的容器
 ```
 
@@ -209,7 +209,9 @@ ifconfig {网卡名}  #查看路由信息
 docker container prune  #清除所有停止的容器
 docker container prune --filter "until=24h"  #删除停止超过24小时的容器
 #其他方式式，兼容旧版本
-docker rm $(docker ps -a -q)   #清除所有已停止的容器
+docker rm $(docker ps -qf status=exited) #清除所有已停止的容器
+docker rm `docker ps -a|grep Exited|awk '{print $1}'`  #清除所有已停止的容器
+docker rm $(docker ps -a -q)   #尝试清除所有已停止的容器,运行中的容器被保护不能被清理
 
 #移除镜像
 docker image prune   #清除状态为dangling的镜像

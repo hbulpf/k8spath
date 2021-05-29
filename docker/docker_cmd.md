@@ -266,10 +266,12 @@ docker run --rm swarm list token://946d65606f7c2f49766e4dddac5b4365
 ```
 
 # 常见问题
-1. `Cannot start container eb9d501f56bc142d9bf75ddfc7ad88383b7388ca6a5959309af2165f1fff6292: iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 8081 -j DNAT --to-destination 172.17.0.164:8080 ! -i docker0: iptables: No chain/target/match by that name.
- (exit status 1)`     
- 解决：   
- 在宿主机执行：
+
+1. `Cannot start container eb9d501f56bc142d9bf75ddfc7ad88383b7388ca6a5959309af2165f1fff6292: iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 8081 -j DNAT --to-destination 172.17.0.164:8080 ! -i docker0: iptables: No chain/target/match by that name. (exit status 1)` 
+
+	解决：   
+
+	在宿主机执行：
 	```
 	pkill docker 
 	iptables -t nat -F 
@@ -279,15 +281,17 @@ docker run --rm swarm list token://946d65606f7c2f49766e4dddac5b4365
 	systmctl restart docker重启docker服务
 	```
 
-1. `docker 修改容器启动配置`<br>
-方法1:<br>
-```
-docker container update --restart=always <containername>
-```
-方法2:<br>
-修改配置文件 `/var/lib/docker/containers/容器ID/hostconfig.json`,在改文件中搜索关键字restart,修改文件前要把容器停止,不然无法写入。
-当前配置 `"RestartPolicy":{"Name":"no","MaximumRetryCount":0}` 修改为后 `"RestartPolicy":{"Name":"always","MaximumRetryCount":0}`
-重启docker 服务即可
+2. `docker 修改容器启动配置`<br>
+
+	方法1:<br>
+	```
+	docker container update --restart=always <containername>
+	```
+
+	方法2:<br>
+	修改配置文件 `/var/lib/docker/containers/容器ID/hostconfig.json`,在改文件中搜索关键字restart,修改文件前要把容器停止,不然无法写入。
+	当前配置 `"RestartPolicy":{"Name":"no","MaximumRetryCount":0}` 修改为后 `"RestartPolicy":{"Name":"always","MaximumRetryCount":0}`
+	重启docker 服务即可
 
 # 参考
 

@@ -1,8 +1,8 @@
-# Docker 常见命令
+# Docker常见命令
 
 ## 检查 Docker状态
 
-```
+```sh
 ps axf | grep docker  #查看docker daemon的运行状况
 
 docker info #查看各个容器的信息
@@ -19,7 +19,7 @@ dokcer cp {主机文件目录}   {容器名}:{容器文件目录}  #从主机向
 
 ## 启动Docker
 
-```
+```sh
 #方式1
 sudo service docker start  #启动docker
 sudo chkconfig docker on   #使docker开机启动
@@ -41,7 +41,7 @@ sudo usermod -aG docker $USER  #将当前用户加入 docker 用户组
 
 ## 列出镜像
 
-```
+```sh
 docker search centos  #搜索镜像centos ，-s N 参数可以指定仅显示评价为 N 星以上的镜像
 
 docker images  #列出已经下载下来的镜像 docker images 
@@ -55,7 +55,7 @@ docker images -f label=com.example.version=0.1  #通过 LABEL 来过滤
 docker pull [选项] [Docker Registry地址]<仓库名>:<标签>  #从 Docker Registry 获取镜像
 ```
 
-## 操作 镜像 
+## 操作镜像 
 
 ### 镜像基本操作
 
@@ -87,7 +87,7 @@ docker pull 192.168.7.26:5000/test   #到另外一台机器去下载这个镜像
 
 ### 导入/导出镜像文件
 
-```
+```sh
 #将容器保存为镜像
 docker commit [选项] <容器ID或容器名> [<仓库名>[:<标签>]] 
 docker commit --author "Tao Wang <twang2218@gmail.com>" --message "修改了默认网页" webserver nginx:v2  #将 webserver 容器保存为镜像 nginx:v2
@@ -107,7 +107,7 @@ docker save <镜像名> | bzip2 | pv | ssh <用户名>@<主机名> 'cat | docker
 ## Docker 容器操作 
 ### 容器运行/启动/终止  
 
-```bash
+```sh
 #运行容器
 docker run -d ubuntu:14.04 /bin/sh -c "while true; do echo hello world; sleep 1; done"   #docker启动一个ubuntu容器并在守护态运行
 #注： docker run 的时候如果添加 --rm 标记，则容器在终止后会立刻删除,--rm 和 -d 参数不能同时使用
@@ -128,7 +128,7 @@ docker container prune -f    #清理全部终止状态的容器
 ```
 
 ### 查看容器状态
-```
+```sh
 docker ps   #查看容器信息
 docker ps -a  #查看所有容器信息，包括终止的容器
 
@@ -140,7 +140,7 @@ docker stats   #在宿主机查看全部容器cpu、内存、网络、io情况
 
 ### 进入容器与容器交互
 
-```
+```sh
 #进入容器与容器交互
 docker exec -it {容器ID或容器名} /bin/bash  # #交互式终端方式进入,注：对容器来说，这将重启一个终端
 docker exec -it webserver bash  #交互式终端方式进入 webserver 容器，并执行了 bash 命令
@@ -148,8 +148,30 @@ docker attach {容器ID或容器名} #将当前终端attach到启动容器的终
 docker run -it {容器ID或容器名}  #以交互式的方式创建容器
 ```
 
-### 导入/导出容器
+## 查看日志
+
+```sh
+$ docker logs [OPTIONS] CONTAINER
+  Options:
+        --details        显示更多的信息
+    -f, --follow         跟踪实时日志
+        --since string   显示自某个timestamp之后的日志，或相对时间，如42m（即42分钟）
+        --tail string    从日志末尾显示多少行日志， 默认是all
+    -t, --timestamps     显示时间戳
+        --until string   显示自某个timestamp之前的日志，或相对时间，如42m（即42分钟）
 ```
+
+```sh
+docker logs -f -t CONTAINER_ID #查看实时日志
+docker logs -f -t --since="2018-02-08" --tail=100 CONTAINER_ID  #查看指定时间后的日志，只显示最后100行
+docker logs --since 30m CONTAINER_ID  #查看最近30分钟的日志
+docker logs -t --since="2018-02-08T13:23:37" CONTAINER_ID  #查看某时间之后的日志
+docker logs -t --since="2018-02-08T13:23:37" --until "2018-02-09T12:23:37" CONTAINER_ID #查看某时间段日志
+```
+
+### 导入/导出容器
+
+```sh
 #导出容器快照为tar包
 docker export {容器ID或容器名} > ubuntu.tar  #导出容器为容器快照,ubuntu.tar	
 
@@ -160,19 +182,19 @@ docker import http://example.com/exampleimage.tgz example/imagerepo  #指定 URL
 ```
 
 ## Registry
-```
+```sh
 #登录公共 Registry
 docker login -u {username}  #登录 docker.io
 ```
 
 ## 数据卷
-```
+```sh
 docker run -d -P --name web -v /src/webapp:/opt/webapp training/webapp python app.py #使用 bind mount 挂载一个主机目录作为数据卷:主机的 /src/webapp 目录到容器的 /opt/webapp 目录
 docker run -d -P --name web -v /opt/webapp training/webapp python app.py   #使用 docker managed volume 挂载容器数据卷，将在主机上 /var/lib/docker/volumes/ 为容器建立一个数据卷目录,可以使用 docker inspect web 查看 Mounts - Source 的内容即为主机目录，即使删除容器，数据卷目录页不会被删除
 ```
 
 ## 容器网络
-```
+```sh
 #随机端口映射
 docker run -d -P training/webapp python app.py #使用 -P 标记，Docker 会随机映射一个 49000~49900 的端口到内部容器开放的网络端口
 
@@ -189,7 +211,7 @@ docker run -d -P --name web --link db:db training/webapp python app.py  #创建�
 ```
 
 ## 容器访问控制
-```
+```sh
 sysctl net.ipv4.ip_forward   #检查转发是否打开
 sysctl -w net.ipv4.ip_forward=1  #手动开启转发
 
@@ -204,7 +226,7 @@ ifconfig {网卡名}  #查看路由信息
 
 ## 容器空间清理 `prune`
 
-```
+```sh
 #移除容器
 docker container prune  #清除所有停止的容器
 docker container prune --filter "until=24h"  #删除停止超过24小时的容器
@@ -238,9 +260,9 @@ docker system prune --volumes
 > `-a` 参数查看所有   
 > `--filter` 参数，筛选特定资源   
 
-## swarm（待修改）
+## swarm
 
-```
+```sh
 docker pull swarm  #下载镜像
 	
 docker run --rm swarm -v  #查看 Swarm 版本,验证是否成功下载 Swarm 镜像
@@ -272,7 +294,7 @@ docker run --rm swarm list token://946d65606f7c2f49766e4dddac5b4365
 	解决：   
 
 	在宿主机执行：
-	```
+	```sh
 	pkill docker 
 	iptables -t nat -F 
 	ifconfig docker0 down 
@@ -284,7 +306,7 @@ docker run --rm swarm list token://946d65606f7c2f49766e4dddac5b4365
 2. `docker 修改容器启动配置`<br>
 
 	方法1:<br>
-	```
+	```sh
 	docker container update --restart=always <containername>
 	```
 

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-depoy
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mynginx
+  template:
+    metadata:
+      labels:
+        app: mynginx
+    spec:
+      containers:
+      - name: mynginx
+        image: nginx
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: mynginx-svc
+spec:
+  type: NodePort
+  selector:
+    app: mynginx
+  ports:
+  - protocol: TCP
+    port: 3080
+    targetPort: 80
+    nodePort: 30091

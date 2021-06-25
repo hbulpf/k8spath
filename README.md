@@ -9,7 +9,7 @@
 
 ## Kubernetes 基础
 
-1. [Kubernetes 命令](kube-cmd.md)
+1. [Kubernetes命令](basic/kube_cmd.md)
 1. k8s调度
    1. [k8s调度详解](./scheduler/k8s调度器详解.md)
 

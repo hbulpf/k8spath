@@ -5,33 +5,42 @@
 [![GitHub watchers](https://img.shields.io/github/watchers/hbulpf/k8spath.svg?label=Watchers)](https://github.com/hbulpf/k8spath/watchers)
 [![GitHub forks](https://img.shields.io/github/forks/hbulpf/k8spath.svg?label=Forks)](https://github.com/hbulpf/k8spath/fork)
 
-## Dokcer 基础
+Kubernetes(国人简称 k8s)是Google开源的容器集群管理系统。在Docker基础上，为容器化的应用提供部署运行、资源调度、服务发现和动态伸缩等一系列完整功能。
 
-## Kubernetes 基础
+Kubernetes 是一个完备的分布式系统支撑平台，具备的能力:
+* 多层次的安全防护和准入机制
+* 多租户应用支撑能力
+* 透明的服务注册和服务发现机制
+* 内建的智能负载均衡器
+* 强大的故障发现和自我修复能力
+* 服务滚动升级和在线扩容能力
+* 可扩展的资源自动调度机制
+* 多粒度的资源配额管理能力
 
-1. [Kubernetes命令](basic/kube_cmd.md)
-1. k8s调度
-   1. [k8s调度详解](./scheduler/k8s调度器详解.md)
+## Kubernetes基础
 
-### 参考资源
+### Dokcer基础
 
-1. [Gitlab CI](https://www.qikqiak.com/k8s-book/docs/65.Gitlab%20CI.html)
-1. [kubernetes官方手册](https://kubernetes.io/zh/docs/concepts/)
-1. [CKA考试讲解，3天速成K8S](https://bbs.huaweicloud.com/videos/102361)
-1. [和我一步步部署 kubernetes 集群](https://github.com/opsnull/follow-me-install-kubernetes-cluster) 
+### Kubernetes入门
+
+1. [Kubernetes命令](basic/kube_cli.md)
+
+## 机制解读
+
+1. [k8s调度详解](./arch/scheduler/k8s调度器详解.md)
 
 
+## 推荐资源
 
-# 书单
-+ **Docker 相关**
-    1. [Docker 从入门到实践](https://github.com/yeasy/docker_practice) : [下载PDF](https://github.com/hbulpf/MLBooks/blob/master/6_%E4%BA%91%E8%AE%A1%E7%AE%97/docker_practice.pdf)
-    
-+ **Kubernetes 相关**
-    1. [kubernetes-handbook](https://jimmysong.io/kubernetes-handbook)
-    1. Kubernetes权威指南第2版: [下载PDF](https://github.com/hbulpf/MLBooks/blob/master/6_%E4%BA%91%E8%AE%A1%E7%AE%97/Kubernetes%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%AC%AC2%E7%89%88.pdf)
+1. [书单推荐](booklist.md)
+2. [kubernetes官方手册](https://www.qikqiak.com/k8s-book/)
+3. [Gitlab CI](https://www.qikqiak.com/k8s-book/docs/65.Gitlab%20CI.html)
+4. [CKA考试讲解，3天速成K8S](https://bbs.huaweicloud.com/videos/102361)
+5. [和我一步步部署 kubernetes 集群](https://github.com/opsnull/follow-me-install-kubernetes-cluster) 
 
-+ 云计算工程师技能
-	![云计算工程师技能](png-CloudComputing-by-StuQ.png)
+## 更多参考
+
+1. [Python微服务应用](https://www.qikqiak.com/tdd-book/)
 
 ----------------------------------------
 

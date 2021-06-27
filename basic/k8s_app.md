@@ -194,11 +194,12 @@ Events:
   Normal  Created                19m   kubelet, 172.31.25.125  Created container
   Normal  Started                18m   kubelet, 172.31.25.125  Started container
 ```
+
 # 总结
+
 1. 用户通过 kubectl 创建 Deployment。
-1. Deployment 创建 ReplicaSet。
-1. ReplicaSet 创建 Pod。
+2. Deployment 创建 ReplicaSet。
+3. ReplicaSet 创建 Pod。
 
-![](./pic/640.webp)     
 
-从上图也可以看出，对象的命名方式是：子对象的名字 = 父对象名字 + 随机字符串或数字。
+对象的命名方式是：子对象的名字 = 父对象名字 + 随机字符串或数字。

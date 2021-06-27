@@ -8,6 +8,7 @@ kubectl edit
 kubectl patch
 ```
 # 使用 yml 运行一个 app
+
 1. 运行一个 Deployment ：`kubectl apply -f nginx.yml`   
   `nginx.yml`的配置信息：
   ```
@@ -68,7 +69,7 @@ kubectl patch
   v1
   ```
 
-1. 查看 Deployment ： `kubectl get deployment nginx-deployment2 -o wide`
+2. 查看 Deployment ： `kubectl get deployment nginx-deployment2 -o wide`
   ```
   [root@ip-172-31-24-224 opt]# kubectl get deployment nginx-deployment2 -o wide
   NAME                DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE       CONTAINERS   IMAGES        SELECTOR
@@ -108,7 +109,7 @@ kubectl patch
     Normal  ScalingReplicaSet  9m    deployment-controller  Scaled up replica set nginx-deployment2-7f7c47b54f to 2
   ```
 
-1. 删除 Deployment ： `kubectl delete deployment nginx-deployment2` 或者 `kubectl delete -f nginx.yml`
+3. 删除 Deployment ： `kubectl delete deployment nginx-deployment2` 或者 `kubectl delete -f nginx.yml`
   ```
   [root@ip-172-31-24-224 opt]# kubectl delete -f nginx.yml
 

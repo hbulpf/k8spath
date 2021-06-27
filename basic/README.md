@@ -1,6 +1,6 @@
-Kubernetes 各类工具
+# Kubernetes基础
 
-# 1. 命令行终端
+## 命令行终端
 1. [Kube-prompt](https://github.com/c-bata/kube-prompt/) 用 Go 语言开发，天生良好的跨平台性。
     - [安装方式](./install_kube-prompt.md)
 1. [kube-shell](https://github.com/cloudnativelabs/kube-shell)可以为 Kubectl 提供自动的命令提示和补全。

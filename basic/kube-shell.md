@@ -1,13 +1,13 @@
-kubectl Shell命令提示工具kube-shell
-## 0、关于kube-shell
+# kube-shell
+
 Kube-shell是基于python-prompt-toolkit实现的，旨在提供Kubectl的易用性并提高生产力。kube-shell提供如下功能：
-```
-自动完成kubectl命令及参数提示
-颜色标示显示
-历史命令自动填充
-模糊查询，服务端自动完成
-上下文信息及切换，F4切换集群，F5切换Namespaces
-```
+
+* 自动完成kubectl命令及参数提示
+* 颜色标示显示
+* 历史命令自动填充
+* 模糊查询，服务端自动完成
+* 上下文信息及切换，F4切换集群，F5切换Namespaces
+
 ## 1、环境准备
 ### 1.1 python2.7.5升级到2.7.14
 查看Python版本

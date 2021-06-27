@@ -7,7 +7,7 @@
 ## k8s基础
 
 - [k8s入门](basic/README.md)
-  - [k8s速览](basic/k8s_intro.md)
+- [k8s速览](k8s_intro.md)
 - [kubectl_cli](basic/kube_cli.md)
 - [k8s的yaml规范](basic/k8s_yaml.md)
 - [k8s运行app](basic/k8s_app.md)
@@ -15,8 +15,6 @@
 - [kube-shell](basic/kube-shell.md)
 - [kube-prompt](basic/kube-prompt.md)
 - [k8s安装](basic/install/README.md)
-- [寻找帮助](basic/seek_help.md)
-- [书籍推荐](basic/booklist.md)
 
 ## 架构
 
@@ -36,3 +34,9 @@
 ## AI
 
 * [ai on k8s](ai/README.md)
+
+
+## 其他
+
+- [寻找帮助](seek_help.md)
+- [书籍推荐](booklist.md)

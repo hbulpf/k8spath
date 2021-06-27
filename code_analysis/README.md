@@ -1,7 +1,8 @@
-Kubernetes 源码解析
+# Kubernetes 源码解析
 
-### Kubernetes 源码结构
-#### 源码目录
+## 源码结构
+
+### 源码目录
 ```
 .
 ├── api
@@ -21,7 +22,7 @@ Kubernetes 源码解析
 └── vendor
 ```
 
-#### pkg主体代码结构
+### pkg主体代码结构
 pkg中包含了Kubernetes 的主体源码[[1]](#参考1)，具体结构如下：
 
 package | 模块用途 
@@ -43,4 +44,5 @@ volume |
 1. go-restful 框架 . https://github.com/emicklei/go-restful
 
 # 参考
+
 1. 龚正,吴治辉等 . Kubernetes权威指南:从Docker到Kubernetes全接触[M] . 北京：电子工业出版社,2016:398-399

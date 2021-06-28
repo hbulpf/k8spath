@@ -2,20 +2,19 @@
 
 ## 简介
 
-YAML（IPA: /ˈjæməl/，尾音类似camel骆驼）是一个可读性高，用来表达资料序列的编程语言。YAML参考了其他多种语言，包括：XML、C语言、Python、Perl以及电子邮件格式RFC2822。Clark Evans在2001年在首次发表了这种语言[1] ，另外Ingy döt Net与Oren Ben-Kiki也是这语言的共同设计者。目前已经有数种编程语言或脚本语言支援（或者说解析）这种语言。
+YAML（IPA: /ˈjæməl/，尾音类似camel骆驼）是一个可读性高，用来表达资料序列的编程语言。YAML参考了其他多种语言，包括：XML、C语言、Python、Perl以及电子邮件格式RFC2822。
 
-YAML是"YAML Ain't a Markup Language"（YAML不是一种置标语言）的递回缩写。在开发的这种语言时，YAML 的意思其实是："Yet Another Markup Language"（仍是一种置标语言），但为了强调这种语言以数据做为中心，而不是以置标语言为重点，而用返璞词重新命名。
+YAML是"YAML Ain't a Markup Language"（YAML不是一种置标语言）的递回缩写。在开发的这种语言时，YAML 的意思其实是："Yet Another Markup Language"。
 
-### 注意
-
-yaml文件的后缀可以使用.yml也可以使用.yaml（官方使用的是这种），当然了你也可以使用任何其他后缀，后缀仅仅是一个标识，对文件的内容和功能无任何影响。
+yaml文件的后缀可以使用.yml也可以使用.yaml（官方使用的是这种），当然也可以使用任何其他后缀，后缀仅仅是一个标识，对文件的内容和功能无任何影响。
 
 k8s里所有的资源或者配置文件都可以用yaml或Json定义。YAML是一个JSON的超集，任何有效JSON文件也都是一个有效的YAML文件。
 
 ## yaml举例
 
-```bash
-# yaml格式的pod定义文件完整内容：
+yaml格式的pod定义文件完整内容
+
+```yaml
 apiVersion: v1       #必选，版本号，例如v1
 kind: Pod       #必选，Pod
 metadata:       #必选，元数据
@@ -26,6 +25,28 @@ metadata:       #必选，元数据
   annotations:       #自定义注释列表
     - name: string
 spec:         #必选，Pod中容器的详细定义
+  restartPolicy: [Always | Never | OnFailure]#Pod的重启策略，Always表示一旦不管以何种方式终止运行，kubelet都将重启，OnFailure表示只有Pod以非0退出码退出才重启，Nerver表示不再重启该Pod
+  nodeSelector: obeject  #设置NodeSelector表示将该Pod调度到包含这个label的node上，以key：value的格式指定
+  imagePullSecrets:    #Pull镜像时使用的secret名称，以key：secretkey格式指定
+    - name: string
+  hostNetwork: false      #是否使用主机网络模式，默认为false，如果设置为true，表示使用宿主机网络
+  volumes:       #在该pod上定义共享存储卷列表
+    - name: string     #共享存储卷名称 （volumes类型有很多种）
+      emptyDir: {}     #类型为emtyDir的存储卷，与Pod同生命周期的一个临时目录。为空值
+      hostPath: string     #类型为hostPath的存储卷，表示挂载Pod所在宿主机的目录
+        path: string     #Pod所在宿主机的目录，将被用于同期中mount的目录
+    - name: string  
+      secret:      #类型为secret的存储卷，挂载集群与定义的secre对象到容器内部
+        scretname: string  
+        items:     
+          - key: string
+            path: string
+    - name: string  
+      configMap:     #类型为configMap的存储卷，挂载预定义的configMap对象到容器内部
+        name: string
+        items:
+          - key: string
+            path: string
   containers:      #必选，Pod中容器列表
   - name: string     #必选，容器名称
     image: string    #必选，容器的镜像名称
@@ -52,7 +73,7 @@ spec:         #必选，Pod中容器的详细定义
       requests:      #资源请求的设置
         cpu: string    #Cpu请求，容器启动的初始可用数量
         memory: string     #内存清楚，容器启动的初始可用数量
-    livenessProbe:     #对Pod内个容器健康检查的设置，当探测无响应几次后将自动重启该容器，检查方法有exec、httpGet和tcpSocket，对一个容器只需设置其中一种方法即可
+    livenessProbe:     #对Pod内单个容器健康检查的设置，当探测无响应几次后将自动重启该容器，检查方法有exec、httpGet和tcpSocket，对一个容器只需设置其中一种方法即可
       exec:      #对Pod容器内检查方式设置为exec方式
         command: [string]  #exec方式需要制定的命令或脚本
       httpGet:       #对Pod内个容器健康检查方法设置为HttpGet，需要制定Path、port
@@ -65,36 +86,16 @@ spec:         #必选，Pod中容器的详细定义
           value: string
       tcpSocket:     #对Pod内个容器健康检查方式设置为tcpSocket方式
          port: number
-       initialDelaySeconds: 0  #容器启动完成后首次探测的时间，单位为秒
-       timeoutSeconds: 0   #对容器健康检查探测等待响应的超时时间，单位秒，默认1秒
-       periodSeconds: 0    #对容器监控检查的定期探测时间设置，单位秒，默认10秒一次
-       successThreshold: 0
-       failureThreshold: 0
-       securityContext:
-         privileged:false
-    restartPolicy: [Always | Never | OnFailure]#Pod的重启策略，Always表示一旦不管以何种方式终止运行，kubelet都将重启，OnFailure表示只有Pod以非0退出码退出才重启，Nerver表示不再重启该Pod
-    nodeSelector: obeject  #设置NodeSelector表示将该Pod调度到包含这个label的node上，以key：value的格式指定
-    imagePullSecrets:    #Pull镜像时使用的secret名称，以key：secretkey格式指定
-    - name: string
-    hostNetwork:false      #是否使用主机网络模式，默认为false，如果设置为true，表示使用宿主机网络
-    volumes:       #在该pod上定义共享存储卷列表
-    - name: string     #共享存储卷名称 （volumes类型有很多种）
-      emptyDir: {}     #类型为emtyDir的存储卷，与Pod同生命周期的一个临时目录。为空值
-      hostPath: string     #类型为hostPath的存储卷，表示挂载Pod所在宿主机的目录
-        path: string     #Pod所在宿主机的目录，将被用于同期中mount的目录
-      secret:      #类型为secret的存储卷，挂载集群与定义的secre对象到容器内部
-        scretname: string  
-        items:     
-        - key: string
-          path: string
-      configMap:     #类型为configMap的存储卷，挂载预定义的configMap对象到容器内部
-        name: string
-        items:
-        - key: string
-          path: string
+      initialDelaySeconds: 0  #容器启动完成后首次探测的时间，单位为秒
+      timeoutSeconds: 0   #对容器健康检查探测等待响应的超时时间，单位秒，默认1秒
+      periodSeconds: 0    #对容器监控检查的定期探测时间设置，单位秒，默认10秒一次
+      successThreshold: 0
+      failureThreshold: 0
+    securityContext:
+      privileged: false
 ```
 
-## yaml基础
+规则：
 
 - 大小写敏感
 - 使用缩进表示层级关系
@@ -105,21 +106,18 @@ spec:         #必选，Pod中容器的详细定义
 
 ### YAML Maps
 
-我们先开始看YAML maps。Maps让你将键值组合，你就可以更加方便的去设置配置信息。例如，你可能有以下这样一个配置信息：
+Maps将键值组合，可以更加方便地设置配置信息。如这样一个配置信息：
 
 
-
-```undefined
+```yaml
 ---
 apiVersion: v1
 kind: Pod
 ```
 
-第一行是分隔符，并且是可选的，除非你试图在单个文件中定义多个结构。从这里你可以看到，我们有两个值，V1和Pod，对应他们的键是apiVersion和kind。
+第一行是分隔符，并且可选，除非试图在单个文件中定义多个结构。从这里可以看到，有两个值，V1和Pod，对应的键是apiVersion和kind。
 
-这种比较简单，当然你也可以将之转换为json格式，如下：
-
-
+将之转换为json格式，如下：
 
 ```json
 {
@@ -128,13 +126,11 @@ kind: Pod
 }
 ```
 
-注意，在我们的YAML版本中，引号是可选的，处理器可以知道你正在查看基于格式化的字符串。
+注意，在YAML版本中，引号是可选的，处理器知道你正在查看基于格式化的字符串。
 
-你也可以指定一个复杂的结构，创建一个key其对应的值不是字符串而是一个maps如下所示：
+也可以指定一个复杂的结构，创建一个key其对应的值不是字符串而是一个maps如下所示：
 
-
-
-```undefined
+```yaml
 ---
 apiVersion: v1
 kind: Pod
@@ -143,37 +139,34 @@ metadata:
   labels:
     app: web
 ```
+ 
+metadata这个key对应的值中有两个key分别为name和labels。
+labels 这个key的值又是一个map，可以根据场景进行多层嵌套。
 
-这种情况下，我们有metadata这个key对应的值中又有两个key分别为name和labels。labels 这个key的值又是一个map。你可以根据场景进行多层嵌套。
+YAML处理器可以根据行缩进来知道内容之间的关联。在这个例子中用了两个空格使之可读，但是空格的数量不重要，但是至少要求一个，并且所有缩进都保持一致的空格数。
 
-YAML处理器可以根据行缩进来知道内容之间的关联。在这个例子中我用了两个空格使之可读，但是空格的数量不重要，但是至少要求一个，并且所有缩进都保持一致的空格数。例如，name和labels是相同缩进级别，因此YAML处理器知道他们属于同一map；它知道app是lables的值因为app的缩进更大。
+例如: name和labels是相同缩进级别，因此YAML处理器知道他们属于同一map；它知道app是lables的值因为app的缩进更大。
 
-注意：在YAML文件中绝对不要使用tab键
+注意：**在YAML文件中绝对不要使用tab键**
 
-因此，如果我们将上述内容翻译成JSON，它看起来结果如下所示：
-
-
+将上述内容翻译成JSON，结果如下所示：
 
 ```json
 {
-  "apiVersion": "v1",
-  "kind": "Pod",
-  "metadata": {
-               "name": "rss-site",
-               "labels": {
-                          "app": "web"
-                         }
-              }
+    "apiVersion": "v1",
+    "kind": "Pod",
+    "metadata": {
+        "name": "rss-site",
+        "labels": {
+            "app": "web"
+        }
+    }
 }
 ```
 
-现在让我们来看看lists。
+## YAML 列表
 
-### YAML lists
-
-YAML lists 简直是一个序列的对象，例如：
-
-
+YAML lists 是一个序列的对象，如：
 
 ```bash
 args
@@ -183,9 +176,7 @@ args
   - "Bring back Firefly!"
 ```
 
-正如你可以看到,你可以有任何数量的项在列表中，项的定义以破折号（-）开头，并且与父元素之间存在缩进。在JSON格式中，它将表示如下：
-
-
+可以有任何数量的项在列表中，项的定义以破折号（-）开头，**并且与父元素之间存在缩进**。在JSON格式中，它将表示如下：
 
 ```json
 {
@@ -193,11 +184,10 @@ args
 }
 ```
 
-当然，list的子项也可以是maps，maps的子项也可以是list如下所示：
+list的子项也可以是maps，maps的子项也可以是list。如下所示：
 
 
-
-```ruby
+```yaml
 ---
 apiVersion: v1
 kind: Pod
@@ -217,38 +207,40 @@ spec:
         - containerPort: 88
 ```
 
-正如你所看到的，我们有一个叫container的list对象，每个子项都由name、image、ports组成，每个ports都由一个key为containerPort map组成
-
-如下所示，是上述内容的JSON格式：
-
-
+上述内容的JSON格式如下: 
 
 ```json
 {
-   "apiVersion": "v1",
-   "kind": "Pod",
-   "metadata": {
-                 "name": "rss-site",
-                 "labels": {
-                             "app": "web"
-                           }
-               },
+    "apiVersion": "v1",
+    "kind": "Pod",
+    "metadata": {
+        "name": "rss-site",
+        "labels": {
+            "app": "web"
+        }
+    },
     "spec": {
-       "containers": [{
-                       "name": "front-end",
-                       "image": "nginx",
-                       "ports": [{
-                                  "containerPort": "80"
-                                 }]
-                      }, 
-                      {
-                       "name": "rss-reader",
-                       "image": "nickchase/rss-php-nginx:v1",
-                       "ports": [{
-                                  "containerPort": "88"
-                                 }]
-                      }]
+        "containers": [
+            {
+                "name": "front-end",
+                "image": "nginx",
+                "ports": [
+                    {
+                        "containerPort": "80"
+                    }
+                ]
+            },
+            {
+                "name": "rss-reader",
+                "image": "nickchase/rss-php-nginx:v1",
+                "ports": [
+                    {
+                        "containerPort": "88"
+                    }
+                ]
             }
+        ]
+    }
 }
 ```
 
@@ -256,7 +248,9 @@ spec:
 
 ## 工具
 
-1. YAML 格式化工具 Lint . http://www.yamllint.com/
+1. 使用 [Kubeval](https://www.kubeval.com/) 校验k8s的yaml
+1. [YAML格式化工具 Lint](http://www.yamllint.com/)
+2. [Json格式化工具](https://www.bejson.com/)
 
 # 参考
 

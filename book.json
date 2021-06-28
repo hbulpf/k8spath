@@ -35,7 +35,7 @@
         "github-buttons": {
             "buttons": [{
                 "user": "RunAtWorld",
-                "repo": "https://gitee.com/k8s0to1/k8spath",
+                "repo": "k8spath",
                 "type": "star",
                 "size": "small",
                 "count": true

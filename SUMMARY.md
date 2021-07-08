@@ -15,6 +15,7 @@
 - [kube-shell](basic/kube-shell.md)
 - [kube-prompt](basic/kube-prompt.md)
 - [k8s安装](basic/install/README.md)
+- [OOMKilled问题](basic/oomkilled.md)
 
 ## 架构
 

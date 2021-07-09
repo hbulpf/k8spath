@@ -8,6 +8,7 @@
 Kubernetes(国人简称 k8s)是Google开源的容器集群管理系统。在Docker基础上，为容器化的应用提供部署运行、资源调度、服务发现和动态伸缩等一系列完整功能。
 
 Kubernetes 是一个完备的分布式系统支撑平台，具备的能力:
+
 * 多层次的安全防护和准入机制
 * 多租户应用支撑能力
 * 透明的服务注册和服务发现机制
@@ -32,11 +33,16 @@ Kubernetes 是一个完备的分布式系统支撑平台，具备的能力:
 
 ## 推荐资源
 
+### 在线博客
+
+1. [kubernetes官方手册](https://kubernetes.io/zh/)
+2. [从Docker到Kubernetes进阶](https://www.qikqiak.com/k8s-book/)
+3. [CKA考试讲解，3天速成K8S](https://bbs.huaweicloud.com/videos/102361)
+4. [和我一步步部署 kubernetes 集群](https://github.com/opsnull/follow-me-install-kubernetes-cluster) 
+
+
+### 书籍
 1. [书单推荐](booklist.md)
-2. [kubernetes官方手册](https://www.qikqiak.com/k8s-book/)
-3. [Gitlab CI](https://www.qikqiak.com/k8s-book/docs/65.Gitlab%20CI.html)
-4. [CKA考试讲解，3天速成K8S](https://bbs.huaweicloud.com/videos/102361)
-5. [和我一步步部署 kubernetes 集群](https://github.com/opsnull/follow-me-install-kubernetes-cluster) 
 
 ## 更多参考
 

@@ -47,3 +47,13 @@ occupid_npus_docker(){
     res=`echo ${busy_npus[@]} | sed 's/ /\n/g' | sort | uniq`
     echo -e "busy npus:\n${res}"
 }
+
+dstats(){
+    if [ -n "$1" ]; then
+        keyword=$1
+        c_name=`docker ps --format "{{.ID}} {{.Image}} {{.Names}}" | grep ${keyword} |grep -v '/pause' | awk '{print $3}'`
+        docker stats ${c_name}
+    else
+        echo 'need container name as param'
+    fi
+}

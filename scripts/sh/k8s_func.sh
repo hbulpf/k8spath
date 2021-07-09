@@ -5,9 +5,9 @@ kpod(){
         keyword=$1
     else
         echo 'no keyword.output pod info of mx_aoi_service'
-        kubectl get pod | grep infer
+        kubectl get pod -o wide | grep infer
     fi
-    kubectl get pod | grep ${keyword}
+    kubectl get pod -o wide | grep ${keyword}
 }
 
 kinto(){

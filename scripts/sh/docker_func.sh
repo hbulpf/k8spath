@@ -17,7 +17,7 @@ rm_docker(){
 }
 
 godocker(){
-    if [ $# -eq 1]; then
+    if [ $# -eq 1 ]; then
         c=$1
         docker exec -it $c bash
     else
@@ -53,6 +53,15 @@ dstats(){
         keyword=$1
         c_name=`docker ps --format "{{.ID}} {{.Image}} {{.Names}}" | grep ${keyword} |grep -v '/pause' | awk '{print $3}'`
         docker stats ${c_name}
+    else
+        echo 'need container name as param'
+    fi
+}
+
+drestart_num(){
+    if [ -n "$1" ]; then
+        c_name=$1
+        docker inspect -f "restart:{{.RestartCount}} , lastStart:{{.State.StartedAt}}" ${c_name}
     else
         echo 'need container name as param'
     fi

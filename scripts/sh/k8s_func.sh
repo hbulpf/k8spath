@@ -70,6 +70,25 @@ getpod_by_keyword(){
         num=0
     fi
     pod_name=`echo ${candidates} | awk -v t="${num}" '{print $t}'`
-    echo search pod: ${pod_name}
+    echo pod_name: ${pod_name}
     eval "$1=${pod_name}"
+}
+
+kstats(){
+    if [ -n "$1" ]; then
+        keyword=$1
+    else
+        echo 'please input keyword'
+        return 0
+    fi
+    getpod_by_keyword pod_by_word ${keyword}
+    c_name=`docker ps --format "{{.ID}} {{.Image}} {{.Names}}" | grep ${pod_by_word} |grep -v '/pause' | awk '{print $3}'`
+    echo "container(${c_name}) found"
+    c_name=`echo ${c_name} | sed 's/ //g'`
+    if [ -z "${c_name}" ]; then
+        echo "Err: not found container by (${pod_by_word}). pod is crashed or pod is on other node!"
+        kpod ${pod_by_word}
+    else
+        docker stats ${c_name}
+    fi
 }

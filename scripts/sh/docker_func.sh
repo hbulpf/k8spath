@@ -50,8 +50,7 @@ occupid_npus_docker(){
 
 dstats(){
     if [ -n "$1" ]; then
-        keyword=$1
-        c_name=`docker ps --format "{{.ID}} {{.Image}} {{.Names}}" | grep ${keyword} |grep -v '/pause' | awk '{print $3}'`
+        c_name=$1
         docker stats ${c_name}
     else
         echo 'need container name as param'
@@ -66,3 +65,4 @@ drestart_num(){
         echo 'need container name as param'
     fi
 }
+

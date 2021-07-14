@@ -43,8 +43,20 @@ klog(){
     kubectl logs -f ${pod_by_word}
 }
 
-kloginfer_server(){
+klog_svc_infer(){
     getpod_by_keyword pod_by_word 'infer'
+    kubectl exec ${pod_by_word} -- tail -f /inference/sdk_rw/logs/ai_server.log
+}
+
+klog_app_infer(){
+    if [ -n "$1" ] ; then
+        keyword=$1
+    else
+        echo 'please input keyword'
+        return 0
+    fi
+    getpod_by_keyword pod_by_word ${keyword}
+    echo 'print app log of: '${pod_by_word}
     kubectl exec ${pod_by_word} -- tail -f /inference/sdk_rw/logs/ai_server.log
 }
 

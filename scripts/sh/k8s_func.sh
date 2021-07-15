@@ -43,7 +43,7 @@ klog(){
     kubectl logs -f ${pod_by_word}
 }
 
-klog_app_infer(){
+ktlog(){
     if [ -n "$1" ] ; then
         keyword=$1
     else
@@ -60,7 +60,7 @@ klog_app_infer(){
     kubectl exec ${pod_by_word} -- tail -f ${logdir}
 }
 
-kcp_log_infer(){
+kcplog(){
     if [ -n "$1" ] ; then
         keyword=$1
     else

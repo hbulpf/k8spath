@@ -92,7 +92,7 @@ getpod_by_keyword(){
     done
     let line_no--
 
-    if [ $[line_no] -gt 1 ]; then
+    if [ ${line_no} -gt 0 ]; then
         echo 'please choose number of pod:'
         read num
     else

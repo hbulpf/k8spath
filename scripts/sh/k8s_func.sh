@@ -40,6 +40,17 @@ klog(){
         return 0
     fi
     getpod_by_keyword pod_by_word ${keyword}
+    kubectl logs ${pod_by_word}
+}
+
+klogf(){
+    if [ -n "$1" ] ; then
+        keyword=$1
+    else
+        echo 'please input keyword'
+        return 0
+    fi
+    getpod_by_keyword pod_by_word ${keyword}
     kubectl logs -f ${pod_by_word}
 }
 

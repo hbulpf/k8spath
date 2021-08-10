@@ -193,10 +193,6 @@ kube-scheduler在启动的时候可以通过 --policy-config-file参数可以指
 type FitPredicate func(pod *v1.Pod, meta PredicateMetadata, nodeInfo *schedulercache.NodeInfo) (bool, []PredicateFailureReason, error)
 ```
 
-
-
-
-
 除了上面2种方式外，Kubernetes也允许用户编写自己的调度器组件，并在创建资源的时候引用它。多个调度器可以同时运行和工作，只要名字不冲突。
 
 调度器最核心的逻辑并不复杂。Scheduler首先监听apiserver ，获取没有被调度的Pod和全部节点列表，而后根据一定的算法和策略从节点中选择一个作为调度结果，最后向apiserver中写入binding 。比如下面就是用bash编写的简单调度器：

@@ -21,6 +21,10 @@
 
 * [架构解析](arch/README.md)
   * [scheduler](arch/scheduler/README.md)
+  * [controller](arch/k8s_controller.md)
+  * [pod](arch/k8s_pod.md)
+  * [cri](arch/k8s_cri.md)
+  * [istio](arch/istio.md)
 
 ## 应用
 

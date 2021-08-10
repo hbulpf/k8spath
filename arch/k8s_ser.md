@@ -211,11 +211,6 @@ service中创建endpoint资源，其中一个作用就是用于service知道包�
 ![img](../images/1024482-20190907220918209-1727058398.png)
 
  
-
- 
-
- 
-
 ### 5.2.3.为外部服务创建别名
 
  除了手动配置来访问外部服务外，还可以使用完全限定域名（FQDN）访问外部服务。
@@ -230,7 +225,7 @@ spec:
 externalName: someapi.somecompany.com    // 实际服务的完全限定域名（FQDN）port: - port: 80
 ```
 
-　　服务创建完成后，pod可以通过external-service.default.svc.cluster.local域名（甚至是external-service）连接外部服务。
+服务创建完成后，pod可以通过external-service.default.svc.cluster.local域名（甚至是external-service）连接外部服务。
 
 ## 5.3.将服务暴露给外部客户端
 
@@ -1029,12 +1024,6 @@ ENTRYPOINT ["tail"]
 | ---------- | ---------- | ---------------------- |
 | ENTRYPOINT | command    | 容器中运行的可执行文件 |
 | CMD        | args       | 传给可执行文件的参数   |
-
- 
-
- 
-
- 
 
  
 

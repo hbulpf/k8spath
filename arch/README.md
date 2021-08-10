@@ -2,14 +2,21 @@
 
 > Kubernetes API Server , Controller Manager , Scheduler , kubelet , kube-proxy
 
+![](../images/k8s_layer.png)
+
+![](../images/k8s_arch.png)
+
 ## Kubernetes API Server
+
 Kubernetes API Server 的核心功能提供了 Kubernetes 各类资源对象(Pod、RC、Service)的增删查改及Watch等 HTTP Rest 接口，成为集群内各个功能模块之间数据交互和通信的中心枢纽，是整个系统的数据总线和数据中心，是集群管理的API入口，资源配额控制的入口，提供完备的集群安全机制。
 
 ## Controller Manager 
+
 Controller Manager 是集群内部的管理控制中心，负责集群中的Node、Pod副本、服务端点(Endpoint)、命名空间(Namespace)、服务账号(Service Account)、资源配额(ResourceQuota)等的管理，当某个Node意外宕机时，Controller Manager会及时发现此故障并执行自动化修复流程，确保集群始终处于预期的工作状态。
 ![](./controlerManager.jpg)
 
-## Scheduler 
+## Scheduler
+
 Kubernetes Scheduler 是负责Pod调度的重要功能模块再整个系统中有“承上启下”的作用。它负责接收 Controller Manager 创建新Pod的请求，为新Pod找到一个目标Node,新Pod创建后，目标Node上的kubelet服务进程负责Pod的剩余生命周期。
 
 具体来说，Kubernetes Scheduler 的作用是将待调度的Pod(包括Kubernetes API 新创建的Pod、Controller Manager为补足副本而创建的Pod)按照特定的调度算法和调度策略绑定到集群中某个合适的Node上，并将绑定信息写入etcd。整个调度过程涉及到三个对象：待调度Pod列表、可用Node列表以及调度算法和策略。

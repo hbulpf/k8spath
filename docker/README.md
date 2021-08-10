@@ -6,5 +6,6 @@
 
 ## 参考
 
-1. [Docker官方手册](https://docs.docker.com/desktop/)
-1. [cSphere Docker 实训课程](https://gitee.com/dockerf/docker-practice)
+1. [Docker —— 从入门到实践](https://yeasy.gitbook.io/docker_practice/)
+2. [Docker官方手册](https://docs.docker.com/desktop/)
+3. [cSphere Docker 实训课程](https://gitee.com/dockerf/docker-practice)

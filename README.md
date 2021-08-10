@@ -18,15 +18,20 @@ Kubernetes 是一个完备的分布式系统支撑平台，具备的能力:
 * 可扩展的资源自动调度机制
 * 多粒度的资源配额管理能力
 
+
+## Dokcer基础
+
+![](images/docker.png)
+
+![](images/vm.png)
+
 ## Kubernetes基础
 
-### Dokcer基础
-
-### Kubernetes入门
+![](images/k8s_arch.png)
 
 1. [Kubernetes命令](basic/kube_cli.md)
 
-## 机制解读
+## Kubernetes源码解读
 
 1. [k8s调度详解](./arch/scheduler/k8s调度器详解.md)
 

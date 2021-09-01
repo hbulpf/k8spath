@@ -1,5 +1,13 @@
 # Kubernetes基础
 
+## Dokcer基础
+
+![](pics/docker.png)  ![](pics/vm.png)
+
+## Kubernetes基础
+
+![](pics/k8s_arch.png)
+
 ## 命令行终端
 1. [Kube-prompt](https://github.com/c-bata/kube-prompt/) 用 Go 语言开发，天生良好的跨平台性。
     - [安装方式](./install_kube-prompt.md)

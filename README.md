@@ -38,20 +38,28 @@ Kubernetes 是一个完备的分布式系统支撑平台，具备的能力:
 
 ## 推荐资源
 
-### 在线博客
+### 入门推荐
 
-1. [kubernetes官方手册](https://kubernetes.io/zh/)
-2. [从Docker到Kubernetes进阶](https://www.qikqiak.com/k8s-book/)
-3. [CKA考试讲解，3天速成K8S](https://bbs.huaweicloud.com/videos/102361)
-4. [和我一步步部署 kubernetes 集群](https://github.com/opsnull/follow-me-install-kubernetes-cluster) 
+1. [Docker 从入门到实践](https://github.com/yeasy/docker_practice) : [下载PDF](https://github.com/hbulpf/MLBooks/blob/master/6_%E4%BA%91%E8%AE%A1%E7%AE%97/docker_practice.pdf)
+2. [kubernetes官方手册](https://kubernetes.io/zh/)
+3. [从Docker到Kubernetes进阶](https://www.qikqiak.com/k8s-book/)
+4. [CKA考试讲解，3天速成K8S](https://bbs.huaweicloud.com/videos/102361)
+5. [和我一步步部署 kubernetes 集群](https://github.com/opsnull/follow-me-install-kubernetes-cluster) 
+6. [Kubernetes权威指南](https://item.jd.com/13221888.html)
 
+### 中级推荐
 
-### 书籍
-1. [书单推荐](booklist.md)
+1. [kubernetes-handbook](https://jimmysong.io/kubernetes-handbook)
+2. [深入剖析Kubernetes](https://item.jd.com/13184526.html)
 
-## 更多参考
+### 高级推荐
+
+1. [kubernetes 源码分析](https://www.bookstack.cn/read/source-code-reading-notes/README.md)
+
+## 更多应用参考
 
 1. [Python微服务应用](https://www.qikqiak.com/tdd-book/)
+2. [书单推荐](booklist.md)
 
 ----------------------------------------
 

@@ -68,9 +68,12 @@ node是pod运行的地方。node上运行的k8s组件有kublet、kube-proxy和po
 
 ### 案例：启动nginx pod ,副本为3
 
-1.命令行方式 ## kubectl run nginx –image=nginx -r 3
+1. 命令行方式 
+   ```
+   kubectl run nginx –image=nginx -r 3
+   ```
 
-2 .编写yml文件
+2. 编写yml文件
 
 ![img](images/1747745-20190827155030824-447261448.png)
 

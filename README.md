@@ -29,6 +29,8 @@ Kubernetes 是一个完备的分布式系统支撑平台，具备的能力:
 
 ## 推荐资源
 
+[cncf云原生技术图谱](https://landscape.cncf.io/)
+
 ### 入门推荐
 
 1. [Docker 从入门到实践](https://github.com/yeasy/docker_practice) : [下载PDF](https://github.com/hbulpf/MLBooks/blob/master/6_%E4%BA%91%E8%AE%A1%E7%AE%97/docker_practice.pdf)
@@ -37,6 +39,7 @@ Kubernetes 是一个完备的分布式系统支撑平台，具备的能力:
 4. [CKA考试讲解，3天速成K8S](https://bbs.huaweicloud.com/videos/102361)
 5. [和我一步步部署 kubernetes 集群](https://github.com/opsnull/follow-me-install-kubernetes-cluster) 
 6. [Kubernetes权威指南](https://item.jd.com/13221888.html)
+7. [阿里云原生技术公开课课](https://edu.aliyun.com/roadmap/cloudnative#course)
 
 ### 中级推荐
 
@@ -61,6 +64,8 @@ Kubernetes 是一个完备的分布式系统支撑平台，具备的能力:
 **友情贡献**
 
 @[**RunAtWorld**](http://www.github.com/RunAtWorld)  &nbsp; 
+@[**sHuXnHs**](https://github.com/shuxnhs)  &nbsp; 
+
 
 #### 关注公众号 『四方云和』 获取更多优质文章 ~
 
